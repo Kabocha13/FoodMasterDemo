@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FoodMaster</title>
+  <style>
+    /* 既存のスタイルを続けて記述 */
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #FF9D50;
+      color: white;
+      text-align: center;
+      padding-top: 100px;
+      margin: 0;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #FF9D50;
+      padding: 10px 20px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+    }
+
+    h1 {
+      font-size: 32px;
+      margin: 0;
+    }
+
+    .button-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 30px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 12px 24px;
+      font-size: 18px;
+      background-color: #3cb371;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+      margin-right: 10px;
+    }
+
+    footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: #f0f0f0;
+      padding: 10px;
+      box-shadow: 0px -2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    ul {
+      list-style: none;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    li {
+      margin: 0;
+      padding: 0;
+    }
+
+    a {
+      display: block;
+      text-align: center;
+      color: #333;
+      text-decoration: none;
+      font-size: 20px;
+    }
+
+    footer li:last-child {
+      margin-right: 0;
+    }
+
+    a::before {
+      font-size: 30px;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    tfoot {
+      background-color: #3f87a6;
+      color: #fff;
+    }
+
+    thead,
+    tfoot {
+      background-color: #3f87a6;
+      color: #fff;
+    }
+
+    tbody {
+      background-color: #e4f0f5;
+    }
+
+    caption {
+      padding: 10px;
+      caption-side: bottom;
+    }
+
+    table {
+      border-collapse: collapse;
+      border: 2px solid rgb(200, 200, 200);
+      letter-spacing: 1px;
+      font-family: sans-serif;
+      font-size: 0.8rem;
+      margin-top: 30px;
+      max-width: 600px;
+      width: 100%;
+    }
+
+    th {
+      border: 1px solid rgb(190, 190, 190);
+      padding: 5px 10px;
+      background: black;
+      color: white;
+      position: sticky;
+      top: 0;
+    }
+
+    td {
+      border: 1px solid rgb(190, 190, 190);
+      padding: 5px 10px;
+      background: black;
+      color: white;
+    }
+
+    td {
+      text-align: center;
+      background: #FF9D50;
+      font-weight: bold;
+    }
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 70vh;
+    }
+
+    /* テーブルをスクロール可能にするスタイル */
+    .table-container {
+      max-height: 400px; /* 任意の高さを設定 */
+      overflow: auto;
+    }
+  </style>
+</head>
+<body>
+  <% if user_signed_in? %>
+    <header>
+      <h1>FoodMaster</h1>
+      <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "button" %>
+    </header>
+  <% else %>
+    <header>
+      <h1>FoodMaster</h1>
+      <a href="index" class="button">Topへ</a>
+    </header>
+  <% end %>
+
+  <div class="content">
+    <h1>食材一覧</h1>
+    <!-- テーブルをスクロール可能にするコンテナを追加 -->
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>食材名</th>
+            <th scope="col">数量(登録された回数)</th>
+            <th>登録日時</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- レシピの行を追加 -->
+          <tr>
+            <td>卵</td>
+            <td>3</td>
+            <td>2023/10/10 10:10</td>
+          </tr>
+          <tr>
+            <td>人参</td>
+            <td>1</td>
+            <td>2023/10/10 10:10</td>
+          </tr>
+          <tr>
+            <td>かぼちゃ</td>
+            <td>13</td>
+            <td>2023/10/10 10:10</td>
+          </tr>
+          <tr>
+            <td>かぼちゃ</td>
+            <td>13</td>
+            <td>2023/10/10 10:10</td>
+          </tr><tr>
+          <td>かぼちゃ</td>
+          <td>13</td>
+          <td>2023/10/10 10:10</td>
+        </tr><tr>
+        <td>かぼちゃ</td>
+        <td>13</td>
+        <td>2023/10/10 10:10</td>
+      </tr><tr>
+      <td>かぼちゃ</td>
+      <td>13</td>
+      <td>2023/10/10 10:10</td>
+    </tr><tr>
+    <td>かぼちゃ</td>
+    <td>13</td>
+    <td>2023/10/10 10:10</td>
+  </tr><tr>
+  <td>かぼちゃ</td>
+  <td>13</td>
+  <td>2023/10/10 10:10</td>
+</tr>
+<tr>
+  <td>かぼちゃ</td>
+  <td>13</td>
+  <td>2023/10/10 10:10</td>
+</tr><tr>
+<td>かぼちゃ</td>
+<td>13</td>
+<td>2023/10/10 10:10</td>
+</tr><tr>
+<td>かぼちゃ</td>
+<td>13</td>
+<td>2023/10/10 10:10</td>
+</tr><tr>
+<td>かぼちゃ</td>
+<td>13</td>
+<td>2023/10/10 10:10</td>
+</tr><tr>
+<td>かぼちゃ</td>
+<td>13</td>
+<td>2023/10/10 10:10</td>
+</tr><tr>
+<td>かぼちゃ</td>
+<td>13</td>
+<td>2023/10/10 10:10</td>
+</tr><tr>
+<td>かぼちゃ</td>
+<td>13</td>
+<td>2023/10/10 10:10</td>
+</tr><tr>
+<td>かぼちゃ</td>
+<td>13</td>
+<td>2023/10/10 10:10</td>
+</tr><tr>
+<td>かぼちゃ</td>
+<td>13</td>
+<td>2023/10/10 10:10</td>
+</tr><tr>
+<td>かぼちゃ</td>
+<td>13</td>
+<td>2023/10/10 10:10</td>
+</tr><tr>
+<td>かぼちゃ</td>
+<td>13</td>
+<td>2023/10/10 10:10</td>
+</tr><tr>
+<td>かぼちゃ</td>
+<td>13</td>
+<td>2023/10/10 10:10</td>
+</tr><tr>
+<td>かぼちゃ</td>
+<td>13</td>
+<td>2023/10/10 10:10</td>
+</tr><tr>
+<td>かぼちゃ</td>
+<td>13</td>
+<td>2023/10/10 10:10</td>
+</tr><tr>
+<td>かぼちゃ</td>
+<td>13</td>
+<td>2023/10/10 10:10</td>
+</tr>
+<tr>
+<td>かぼちゃ</td>
+<td>13</td>
+<td>2023/10/10 10:10</td>
+</tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <footer>
+    <ul>
+      <li><a href="Bhome"><span>🍙</span></a></li>
+      <li><a href="CanMake"><span>🍽️</span></a></li>
+      <li><a href="Notice"><span>🔔</span></a></li>
+      <li><a href="Tell"><span>✉️</span></a></li>
+    </ul>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FoodMaster - 未ログイン者用</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #FF9D50;
+      color: white;
+      text-align: center;
+      padding-top: 100px;
+      margin: 0;
+    }
+
+    h1 {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    .button-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 30px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 12px 24px;
+      font-size: 18px;
+      background-color: #5fa837;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+      margin-right: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>FoodMasterアプリ</h1>
+  <p>食品ロスの削減と食材の有効活用をサポートするアプリです。</p>
+  <p>ご登録またはログインして、機能を利用してください。</p>
+
+  <div class="button-container">
+    <%= link_to new_user_registration_path do %>
+      <h2 class="button">新規登録</h2>
+    <% end %>
+    <%= link_to new_user_session_path do %>
+      <h2 class="button">ログイン</h2>
+    <% end %>
+  </div>
+    <a href="welcome/Bhome" class="button">β版用</a>
+  </div>
+</body>
+
+</html>

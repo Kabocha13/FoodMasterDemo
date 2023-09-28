@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FoodMaster</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #FF9D50;
+      color: white;
+      text-align: center;
+      margin: 0;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #FF9D50;
+      padding: 10px 20px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+    }
+
+    h1 {
+      font-size: 24px; /* スマートフォンに合わせてフォントサイズを小さく */
+      margin: 0;
+    }
+
+    .button-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 10px; /* マージンを少し減らす */
+    }
+
+    .button {
+      display: inline-block;
+      padding: 10px 20px; /* ボタンサイズを調整 */
+      font-size: 16px; /* ボタンのフォントサイズを小さく */
+      background-color: #3cb371;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+      margin-right: 10px;
+    }
+
+    .content {
+      padding-top: 120px; /* ヘッダーの高さ分だけコンテンツを下げる */
+    }
+
+    .box {
+      background: #3cb371;
+      border-left: #4e7bcc 3px solid; /* お知らせの種類 */
+      padding: 15px; /* パディングを増やしてお知らせの内容を分かりやすくする */
+      margin: 10px auto; /* マージンを追加してお知らせボックスを中央に配置 */
+      text-align: left; /* テキストを左寄せにする */
+    }
+
+    .box h3 {
+      font-size: 18px; /* お知らせタイトルのフォントサイズを小さく */
+      margin: 0;
+    }
+
+    .box p {
+      font-size: 14px; /* お知らせの内容のフォントサイズを小さく */
+      margin: 5px 0; /* マージンを追加して段落を区切る */
+    }
+
+    .box h5 {
+      font-size: 14px; /* 日付のフォントサイズを小さく */
+      margin: 0;
+    }
+
+    .hr1 {
+      border-top: solid #3cb371;
+    }
+
+    footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: #f0f0f0;
+      padding: 10px;
+      box-shadow: 0px -2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    ul {
+      list-style: none;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    li {
+      margin: 0;
+      padding: 0;
+    }
+
+    a {
+      display: block;
+      text-align: center;
+      color: #333;
+      text-decoration: none;
+      font-size: 20px;
+    }
+
+    footer li:last-child {
+      margin-right: 0;
+    }
+
+    a::before {
+      font-size: 30px;
+      display: block;
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <% if user_signed_in? %>
+    <header>
+        <h1>FoodMaster</h1>
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "button" %>
+    </header>
+  <% else %>
+    <header>
+      <h1>FoodMaster</h1>
+      <a href="index" class="button">Topへ</a>
+    </header>
+  <% end %>
+
+  <div class="content">
+    <h1>重要なお知らせ</h1>
+    <hr class="hr1">
+    <div class="box">
+      <h3>テスト配信1</h3>
+      <p>このお知らせはテスト配信です。</p> <!-- 閉じタグを追加 -->
+      <h5>2023/07/30 14:03</h5>
+    </div>
+    <hr class="hr1">
+    <div class="box">
+      <h3>β版リリース</h3>
+      <p>β版がリリースされました。</p>
+      <p>不具合等発見された方は右下よりご連絡ください</p>
+      <h5>2023/09/28 11:53</h5>
+    </div>
+    <hr class="hr1">
+  </div>
+
+  <footer>
+    <ul>
+      <li><a href="Bhome"><span>🍙</span></a></li>
+      <li><a href="CanMake"><span>🍽️</span></a></li>
+      <li><a href="Notice"><span>🔔</span></a></li>
+      <li><a href="Tell"><span>✉️</span></a></li>
+    </ul>
+  </footer>
+</body>
+
+</html>
